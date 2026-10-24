@@ -37,7 +37,7 @@ The backend application is deployed on Railway and connected to a PostgreSQL dat
 **Live API URLs:**
 
 - **TaskFlow API:** https://module4assignment-production.up.railway.app/api/tasks
-![alt text](image-13.png)
+![TaskFlow API Screenshot](screenshots/image-13.png)
 
 **GitHub Repository:**
 
@@ -159,10 +159,10 @@ No Docker Hub password or access token is stored directly in the source code.
 
 **GitHub Actions:** https://github.com/AngelineTung/modeul4_assignment/actions
 
-![alt text](image-8.png)
+![GitHub Actions Successful Pipeline](screenshots/image-8.png)
 
 **Successful workflow run:** [INSERT SUCCESSFUL WORKFLOW RUN URL]
-![alt text](image-9.png)
+![Successful Workflow Screenshot](screenshots/image-9.png)
 
 
 ## 7. Stretch Goal 4 — Versioned Docker Images
@@ -194,7 +194,7 @@ The numbered tags use an automated CI build-versioning scheme. They do not neces
 
 ### Published Docker Images
 
-![alt text](image-11.png)
+![Docker Hub Versioned Images](screenshots/image-11.png)
 
 ## 8. Railway Deployment
 
@@ -211,7 +211,7 @@ The application is publicly accessible through Railway's generated HTTPS domain.
 
 ### Deployment Evidence
 
-![alt text](image-12.png)
+![Screenshot](screenshots/image-12.png)
 
 ## 9. CI/CD Architecture
 
