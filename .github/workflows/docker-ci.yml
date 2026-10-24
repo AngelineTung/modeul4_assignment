@@ -1,4 +1,3 @@
-
 name: TaskFlow Docker CI
 
 on:
@@ -14,34 +13,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Get source code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Step 2: Install Java 21
       - name: Set up Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
-          cache-dependency-path: simple-crm/pom.xml
+          cache-dependency-path: pom.xml
 
+      # Step 3: Run Maven tests
       - name: Run Maven tests
-        working-directory: simple-crm
         run: mvn test
 
+      # Step 4: Configure Docker
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Docker Hub
+      # Step 5: Login to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push image
+      # Step 6: Build and publish image
+      - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./simple-crm
-          file: ./simple-crm/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/taskflow-api:latest
